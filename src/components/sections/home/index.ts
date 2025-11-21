@@ -1,0 +1,8 @@
+export { default as Announcementbar } from './Announcementbar'
+export { default as Hero } from './Hero'
+export { default as Carfleet } from './Carfleet'
+export { default as Testimonials } from './Testimonials'
+export { default as Cta } from './Cta'
+export { default as Contact } from './Contact'
+export { default as Newsletter } from './Newsletter'
+export { default as Cookiebanner } from './Cookiebanner'
