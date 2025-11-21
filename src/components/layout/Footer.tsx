@@ -37,10 +37,41 @@ export interface FooterData {
 }
 
 interface FooterProps {
-  data: FooterData;
+  data?: FooterData; // ✅ Made optional
 }
 
-export default function Footer({ data }: FooterProps) {
+// ✅ DEFAULT DATA
+const DEFAULT_FOOTER_DATA: FooterData = {
+  agencyName: "Your Agency",
+  tagline: "Your trusted partner for excellence and innovation",
+  company: {
+    title: "Company",
+    links: [
+      { label: "About Us", href: "/about" },
+      { label: "Services", href: "/services" },
+      { label: "Contact", href: "/contact" }
+    ]
+  },
+  legal: {
+    title: "Legal",
+    links: [
+      { label: "Privacy Policy", href: "/privacy" },
+      { label: "Terms of Service", href: "/terms" }
+    ]
+  },
+  social: {
+    title: "Follow Us",
+    links: [
+      { platform: "facebook", href: "https://facebook.com", icon: Facebook, ariaLabel: "Visit our Facebook page" },
+      { platform: "twitter", href: "https://twitter.com", icon: Twitter, ariaLabel: "Visit our Twitter page" },
+      { platform: "instagram", href: "https://instagram.com", icon: Instagram, ariaLabel: "Visit our Instagram page" }
+    ]
+  },
+  copyrightText: "© {year} Your Agency. All rights reserved."
+};
+
+// ✅ Use default parameter
+export default function Footer({ data = DEFAULT_FOOTER_DATA }: FooterProps) {
   const { agencyName, tagline, company, legal, social, copyrightText } = data;
 
   return (
@@ -140,3 +171,6 @@ export default function Footer({ data }: FooterProps) {
     </section>
   );
 }
+
+// ✅ Export the default data
+export { DEFAULT_FOOTER_DATA };
